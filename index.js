@@ -16,7 +16,7 @@ const uri = `mongodb+srv://${process.env.TASKMANAGER_DB_USER}:${process.env.TASK
 const client = new MongoClient(uri, {
     serverApi: {
         version: ServerApiVersion.v1,
-        strict: true,
+        strict: false,
         deprecationErrors: true,
     }
 });
@@ -24,7 +24,7 @@ const client = new MongoClient(uri, {
 async function run() {
     try {
         // Connect the client to the server	(optional starting in v4.7)
-        await client.connect();
+        // await client.connect();
 
         const taskCollection = client.db("taskManager").collection("tasks");
 
